@@ -3,6 +3,7 @@ const mongoose=require('mongoose')
 const cors=require("cors")
 const EmployeeModel=require('./models/Employees')
 const app=express()
+const PORT=process.env.PORT || 3001 
 app.use(express.json())
 app.use(cors())
 
@@ -30,7 +31,7 @@ app.post('/register',(req,res)=>{
    .then(employees=>res.json(employees))
    .catch(err=>res.json(err))
 })
-app.listen(3001,()=>{
+app.listen(PORT,()=>{
     console.log("server is running")
 })
 
